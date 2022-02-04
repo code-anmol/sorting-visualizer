@@ -1,0 +1,20 @@
+body{
+    background-color: aquamarine;
+}
+
+.btn{
+    height: 50px;
+   
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+    box-sizing: border-box;
+}
+
+
+nav{
+    display: flex;
+    column-gap: 10px;
+}

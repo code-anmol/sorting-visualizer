@@ -1,5 +1,5 @@
 body{
-    background-color: aquamarine;
+    background-color: rgb(18, 36, 30);
 }
 
 .btn{
@@ -17,4 +17,19 @@ body{
 nav{
     display: flex;
     column-gap: 10px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#list{
+    margin: 50px;
+
+    background-color: snow;
+    width: 1000px;
+    height: 400px;
 }

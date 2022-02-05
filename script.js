@@ -1,21 +1,23 @@
 let list = document.getElementById("list");
-let length = 20;
+let length = 100;
 
 let nums = generateRandomNumbers(length);
 
-let listItem = document.createElement("li");
-let listItem2 = document.createElement("li");
-listItem.innerHTML = "a";
-listItem2.innerHTML = "a";
-listItem.style.height = nums[0]+"px";
-listItem2.style.height = nums[1]+"px";
-
-list.appendChild(listItem);
-list.appendChild(listItem2);
+let listItems = [];
+addListItems();
 
 
 
+function addListItems(){
 
+    for(let i = 0; i < length; i++){
+        listItems[i] = document.createElement("li");
+        listItems[i].innerHTML = "a";
+        listItems[i].style.height = nums[i]+"px";
+        list.append(listItems[i]);
+    }
+
+}
 
 
 function generateRandomNumbers(length){

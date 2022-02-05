@@ -14,6 +14,7 @@ body{
 }
 
 li{
+    color: steelblue;
     background-color: steelblue;
 }
 
@@ -32,12 +33,14 @@ nav{
 
 #list{
     margin: 50px;
+    padding: 50px;
     display: flex;
+    align-items: flex-end;
     column-gap: 2px;
     flex-direction: row;
     background-color: snow;
     list-style: none;
-    width: 1000px;
+    
     height: 400px;
     border-radius: 20px;
 }

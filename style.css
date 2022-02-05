@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(18, 36, 30);
+    background-color: rgb(196, 224, 215);
 }
 
 .btn{
@@ -11,6 +11,11 @@ body{
     color: white;
     font-weight: bolder;
     box-sizing: border-box;
+}
+
+li{
+    color: steelblue;
+    background-color: steelblue;
 }
 
 
@@ -28,8 +33,14 @@ nav{
 
 #list{
     margin: 50px;
-
+    padding: 50px;
+    display: flex;
+    align-items: flex-end;
+    column-gap: 2px;
+    flex-direction: row;
     background-color: snow;
-    width: 1000px;
+    list-style: none;
+    
     height: 400px;
+    border-radius: 20px;
 }

@@ -1,5 +1,5 @@
 let list = document.getElementById("list");
-let length = 100;
+let length = 10;
 
 let nums = generateRandomNumbers(length);
 
@@ -7,6 +7,57 @@ let listItems = [];
 addListItems();
 
 
+
+function quicksort(array, low , high){
+    if(high <= low) return;
+    let j = partition(array, low, high);
+    quicksort(array, low, j-1);
+    quicksort(array, j+1, high);
+    
+}
+
+
+function quicksortHelper(array){
+    return quicksort(array, 0, array.length-1);
+}
+
+function partition(array, low, high){
+    let pivot = array[low];
+    let i = low;
+    let j = high+1;
+
+    while(true){
+
+        while(less( array[++i], pivot ))
+            if(i == high ) break;
+
+        while(less(pivot, array[--j]))
+            if(j == low) break;
+
+        if(i >= j) break;
+
+        swap(array, i , j);
+
+
+    }
+
+    swap(array, low, j);
+
+    return j;
+    
+
+
+}
+
+function swap(array, i , j){
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+}
+
+function less(a,b){
+    return a < b;
+}
 
 function addListItems(){
 

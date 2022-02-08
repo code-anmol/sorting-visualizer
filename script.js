@@ -3,10 +3,30 @@ let length = 10;
 
 let nums = generateRandomNumbers(length);
 
+let swappingIndexes = [];
+
 let listItems = [];
 addListItems();
 
 console.log(nums);
+
+
+function quicksortAnimation(array , indices){
+
+    const timeout = setTimeout(animateSwap, 30);
+
+
+}
+
+function changeColor(array , i, color){
+    array[i].style.backgroundColor = color;
+}
+
+function animateSwap(array , i, j){
+    let temp = array[i].style.height;
+    array[i].style.height = array[j].style.height;
+    array[j].style.height = temp;
+}
 
 
 function isSorted(nums){
@@ -54,11 +74,13 @@ function partition(array, low, high){
 
         if(i >= j) break;
 
+        swappingIndexes.push([i , j]);
+
         swap(array, i , j);
 
 
     }
-
+    swappingIndexes.push([low , j]);
     swap(array, low, j);
 
     return j;

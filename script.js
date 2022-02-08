@@ -6,6 +6,19 @@ let nums = generateRandomNumbers(length);
 let listItems = [];
 addListItems();
 
+console.log(nums);
+
+
+function isSorted(nums){
+    let isSorted = true;
+
+    for(let i = 1; i < nums.length ; i++)
+        if(nums[i - 1] > nums[i])
+            return false;
+
+    return isSorted;
+
+}
 
 
 function quicksort(array, low , high){
@@ -14,6 +27,11 @@ function quicksort(array, low , high){
     quicksort(array, low, j-1);
     quicksort(array, j+1, high);
     
+    
+}
+
+function sort(){
+    return quicksortHelper(nums);
 }
 
 

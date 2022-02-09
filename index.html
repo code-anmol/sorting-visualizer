@@ -7,13 +7,24 @@
     <title>Document</title>
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
 </head>
 <body>
 
     <nav>
-        <div></div>
         <button class="btn" onclick="reloadPage()">Generate</button>
         <button class="btn" onclick="sort()">Quicksort</button>
+        <button class="btn" onclick="sort2()">Mergesort</button>
+        <div class="btn">
+            <label for="length">Length</label>
+            <input type="range" min="10" max="200" name="length" value="100" onchange="reloadPage()" id="array-length">
+        </div>
+        <div class="btn">
+            <label for="length">Speed</label>
+            <input type="range" value="20" min="10" max="600" onchange="reloadPage()" name="speed" id="animation-speed">
+        </div>
           
     </nav>
 

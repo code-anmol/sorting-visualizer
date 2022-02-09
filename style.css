@@ -2,15 +2,18 @@ body{
     background-color: rgb(196, 224, 215);
 }
 
-.btn{
+.btn{display: flex;
+    align-items: center;
+    justify-content: center;
     height: 50px;
-   
+    font-family: 'Source Sans Pro', sans-serif;
     background-color: blueviolet;
     padding: 10px;
     border-radius: 10px;
     color: white;
     font-weight: bolder;
     box-sizing: border-box;
+    font-size: larger;
 }
 
 li{
@@ -32,10 +35,12 @@ nav{
 }
 
 #list{
+    width: 80%;
     margin: 50px;
     padding: 50px;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
     column-gap: 2px;
     flex-direction: row;
     background-color: snow;

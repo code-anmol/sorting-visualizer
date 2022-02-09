@@ -1,26 +1,105 @@
 let list = document.getElementById("list");
-let length = 100;
+let length = parseInt(document.getElementById("array-length").value);
+let animationSpeed = parseInt(document.getElementById("animation-speed").value);
 
 let nums = generateRandomNumbers(length);
 
+let swappingIndexesQuickSort = [];
 let swappingIndexes = [];
 
 let listItems = [];
 addListItems();
 
+  
 
-
-function animate(array , indices){
-    let intervalId = setInterval(greet, 30);
+function mergeSortAnimation(array, indices){
+ let intervalId = setInterval(animate, animationSpeed);
 
     let i = 0;
     let length = indices.length * 3;
     let index = 0;
 
-    console.log(length + "length");
+
+    function animate(){
+        index = Math.floor(i/3);
+
+        if(i == length){
+            clearInterval(intervalId);
+            return;
+            
+        }else if(i % 3 == 0){
+
+            changeColor(array, indices[index][0], "red");
+                        
+        }else if(i % 3 == 1){
+                
+            listItems[indices[index][0]].style.height = indices[index][1] + "px";
+            
+        }else{
+            changeColor(array, indices[index][0], "steelblue");
+            
+        }
+        
+        i++;
+
+    }
+
+}
 
 
-    function greet(){
+function merge(array, aux, low, mid, high){
+    for(let k = 0; k<= high; k++){
+        aux[k] = array[k];
+    }
+
+    let i = low;
+    let j = mid + 1;
+
+    for(let k = low; k <= high; k++){
+        if(i > mid){
+            swappingIndexes.push([k, aux[j]]);
+            array[k] = aux[j++];
+            
+        }else if( j > high) {
+            
+            swappingIndexes.push([k, aux[i]]);
+            array[k] = aux[i++];
+            
+        }else if(less(aux[j], aux[i])){
+            
+            swappingIndexes.push([k, aux[j]]);
+            array[k] = aux[j++];
+        }
+        else {
+            
+            swappingIndexes.push([k, aux[i]]);
+            array[k] = aux[i++];
+        }  
+    }
+}
+
+function mergeSort(array, aux, low, high){
+    if(high <= low) return;
+    let mid = Math.floor(low + (high - low) / 2);
+    mergeSort( array, aux, low, mid);
+    mergeSort(array, aux, mid + 1, high);
+    merge(array, aux, low, mid, high);
+}
+
+function mergeSortHelper(array){
+    let aux = new Array(array.length);
+    mergeSort(array, aux, 0, array.length -1);
+}
+
+function animateQuickSort(array , indices){
+    let intervalId = setInterval(animate, animationSpeed);
+
+    let i = 0;
+    let length = indices.length * 3;
+    let index = 0;
+
+
+    function animate(){
         index = Math.floor(i/3);
 
         if(i == length){
@@ -47,9 +126,6 @@ function animate(array , indices){
     }
 
 }
-
-
-
 
 
 
@@ -87,7 +163,12 @@ function quicksort(array, low , high){
 
 function sort(){
     quicksortHelper(nums);
-    animate(listItems, swappingIndexes);
+    animateQuickSort(listItems, swappingIndexesQuickSort);
+}
+function sort2(){
+    mergeSortHelper(nums);
+    mergeSortAnimation(listItems, swappingIndexes);
+    
 }
 
 
@@ -110,13 +191,13 @@ function partition(array, low, high){
 
         if(i >= j) break;
 
-        swappingIndexes.push([i , j]);
+        swappingIndexesQuickSort.push([i , j]);
 
         swap(array, i , j);
 
 
     }
-    swappingIndexes.push([low , j]);
+    swappingIndexesQuickSort.push([low , j]);
     swap(array, low, j);
 
     return j;
@@ -139,7 +220,7 @@ function addListItems(){
 
     for(let i = 0; i < length; i++){
         listItems[i] = document.createElement("li");
-        listItems[i].innerHTML = "a";
+        listItems[i].innerHTML = ".";
         listItems[i].style.height = nums[i]+"px";
         list.append(listItems[i]);
     }

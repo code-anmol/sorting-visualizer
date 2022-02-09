@@ -11,9 +11,8 @@ addListItems();
 console.log(nums);
 
 
-function quicksortAnimation(array , indices){
+function quicksortAnimation(){
 
-    const timeout = setTimeout(animateSwap, 30);
 
 
 }

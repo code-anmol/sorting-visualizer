@@ -1,5 +1,5 @@
 let list = document.getElementById("list");
-let length = 10;
+let length = 100;
 
 let nums = generateRandomNumbers(length);
 
@@ -8,14 +8,50 @@ let swappingIndexes = [];
 let listItems = [];
 addListItems();
 
-console.log(nums);
 
 
-function quicksortAnimation(){
+function animate(array , indices){
+    let intervalId = setInterval(greet, 30);
+
+    let i = 0;
+    let length = indices.length * 3;
+    let index = 0;
+
+    console.log(length + "length");
 
 
+    function greet(){
+        index = Math.floor(i/3);
+
+        if(i == length){
+            clearInterval(intervalId);
+            return;
+            
+        }else if(i % 3 == 0){
+
+            changeColor(array, indices[index][0], "red");
+            changeColor(array, indices[index][1], "red");
+            
+        }else if(i % 3 == 1){
+             
+            
+            animateSwap(array, indices[index][0], indices[index][1]);
+            
+        }else{
+            changeColor(array, indices[index][0], "steelblue");
+            changeColor(array, indices[index][1], "steelblue");
+        }
+        
+        i++;
+
+    }
 
 }
+
+
+
+
+
 
 function changeColor(array , i, color){
     array[i].style.backgroundColor = color;
@@ -50,7 +86,8 @@ function quicksort(array, low , high){
 }
 
 function sort(){
-    return quicksortHelper(nums);
+    quicksortHelper(nums);
+    animate(listItems, swappingIndexes);
 }
 
 

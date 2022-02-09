@@ -1,5 +1,6 @@
 let list = document.getElementById("list");
 let length = parseInt(document.getElementById("array-length").value);
+let animationSpeed = parseInt(document.getElementById("animation-speed").value);
 
 let nums = generateRandomNumbers(length);
 
@@ -9,8 +10,10 @@ let swappingIndexes = [];
 let listItems = [];
 addListItems();
 
+  
+
 function mergeSortAnimation(array, indices){
- let intervalId = setInterval(animate, 20);
+ let intervalId = setInterval(animate, animationSpeed);
 
     let i = 0;
     let length = indices.length * 3;
@@ -89,7 +92,7 @@ function mergeSortHelper(array){
 }
 
 function animateQuickSort(array , indices){
-    let intervalId = setInterval(animate, 20);
+    let intervalId = setInterval(animate, animationSpeed);
 
     let i = 0;
     let length = indices.length * 3;

@@ -39,7 +39,7 @@ nav{
     margin: 50px;
     padding: 50px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     column-gap: 2px;
     flex-direction: row;

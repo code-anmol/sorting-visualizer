@@ -1,6 +1,6 @@
 let list = document.getElementById("list");
 let length = parseInt(document.getElementById("array-length").value);
-let animationSpeed = parseInt(document.getElementById("animation-speed").value);
+let animationSpeed = 105 - parseInt(document.getElementById("animation-speed").value);
 
 let nums = generateRandomNumbers(length);
 
